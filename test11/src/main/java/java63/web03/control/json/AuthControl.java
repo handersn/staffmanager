@@ -1,6 +1,7 @@
 package java63.web03.control.json;
 
 import java.util.HashMap;
+
 import java63.web03.domain.Member;
 import java63.web03.service.MemberService;
 
@@ -84,6 +85,32 @@ public class AuthControl {
     HashMap<String,Object> resultMap = new HashMap<>();
     resultMap.put("status", "success");
     
+    return resultMap;
+  }
+  
+//회원정보 수정
+  @RequestMapping("/user_info")
+  public Object userInfo(HttpSession session) throws Exception {
+    System.out.println("회원수정 들어옴 !");
+    Member loginUser =  (Member)session.getAttribute("loginUser");
+    
+    String uid = loginUser.getUserId();
+    System.out.println(uid);
+    Member member = memberService.getUserInfo(uid);
+    
+    HashMap<String,Object> resultMap = new HashMap<>();
+    resultMap.put("status", "success");    
+    resultMap.put("member", member);
+    
+    return resultMap;
+  }
+  
+  @RequestMapping("/update")
+  public Object update(Member member) throws Exception {
+    memberService.update(member);
+    
+    HashMap<String,Object> resultMap = new HashMap<>();
+    resultMap.put("status", "success");
     return resultMap;
   }
 

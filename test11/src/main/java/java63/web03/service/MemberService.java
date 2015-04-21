@@ -25,6 +25,17 @@ public void add(Member member) {
 	
 }
 
+public Member getUserInfo(String uid) {
+	Member member = memberDao.userInfo(uid);
+	System.out.println("MEMBERSERVICE" + member);
+	return member;
+}
+
+public void update(Member member) {
+	memberDao.update(member);
+	
+}
+
 }
 
 

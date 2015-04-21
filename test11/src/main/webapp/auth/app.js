@@ -31,7 +31,7 @@ $(function(){
 	        , function(data){
 	          if (data.status == 'success') {
 	        	  alert("회원가입 성공!! 로그인후 이용하세요.");
-	           // location.href = '../auth/app.html';
+	              location.href = 'app.html';
 	          } else {
 	            alert('회원가입 실패');
 	          }

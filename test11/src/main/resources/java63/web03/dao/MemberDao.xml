@@ -24,10 +24,28 @@
     WHERE UID=#{userId} AND PWD=#{password}
   </select>
   
+  <!--회원가입 등록  -->
   <insert id="insert" parameterType="Member">
     INSERT INTO MEMBERS(UID,PWD,UNAME,EMAIL,TEL) 
     VALUES (#{userId}, #{password}, #{userName}, #{email}, #{tel})
   </insert>
+  
+  <!--회원정보 수정  -->
+  <select id="userInfo" parameterType="String" resultMap="memberMap">
+   SELECT UID,PWD,EMAIL,UNAME,TEL
+   FROM MEMBERS
+   WHERE UID = #{userId};  
+  </select> 
+  
+  <update id="update" parameterType="Member">
+    UPDATE MEMBERS SET
+      UID=#{userId},
+      PWD=#{password},
+      UNAME=#{userName},
+      EMAIL=#{email}, 
+      TEL=#{tel} 
+    WHERE UID=#{userId}
+  </update>
   
   
 </mapper>
