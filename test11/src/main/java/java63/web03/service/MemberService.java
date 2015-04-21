@@ -20,7 +20,7 @@ public class MemberService {
   }
 
 public void add(Member member) {
-	memberDao.insertAdd(member);
+	memberDao.insert(member);
 	
 	
 }

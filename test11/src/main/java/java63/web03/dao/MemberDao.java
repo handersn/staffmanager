@@ -6,5 +6,5 @@ import java63.web03.domain.Member;
 public interface MemberDao {
   Member existUser(Map<String,String> params);
 
-  void insertAdd(Member member);
+  void insert(Member member);
 }
