@@ -33,6 +33,7 @@ $('#nextBtn').click(function(event){
 	}
 });
 
+//페이징처리
 function setPageNo(currPageNo, maxPageNo) {
   window.currPageNo = currPageNo;
   window.maxPageNo = maxPageNo;
@@ -47,10 +48,12 @@ function setPageNo(currPageNo, maxPageNo) {
 }
 	
 function loadProductList(pageNo) {
-  if (pageNo <= 0) pageNo = currPageNo;
+  if (pageNo <= 0) 
+	  pageNo = currPageNo;
   
 	$.getJSON('../json/product/list.do?pageNo=' + pageNo, 
     function(data){
+		console.log(data);
       setPageNo(data.currPageNo, data.maxPageNo);
       var products = data.products;
       

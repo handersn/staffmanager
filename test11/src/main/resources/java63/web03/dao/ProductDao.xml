@@ -63,13 +63,31 @@
     </if>
   </select>
   
-  <select id="selectOne" parameterType="int" resultMap="productMap">
+  <select id="selectOne" parameterType="int"
+   resultMap="productMap">
     <include refid="productSelect"/> 
     WHERE PNO=#{value}
   </select>
   
+  <!--검색 기능  -->
+  <select id="selectSearch" parameterType="String"
+   resultMap="productMap">
+   SELECT 
+   T1.PNO, 
+   T1.PNAME, 
+   T1.QTY, 
+   T2.MKNO,
+   T2.MKNAME
+   FROM PRODUCTS T1 LEFT OUTER JOIN MAKERS T2 
+   USING(MKNO)
+   WHERE t1.PNAME=#{value} OR t2.MKNAME=#{value}
+   ORDER BY T1.PNO;
+  
+  </select>
+  
   <select id="totalSize" resultType="int">
-    SELECT count(PNO) FROM PRODUCTS
+    SELECT count(PNO)
+    FROM PRODUCTS
   </select>
   
   <insert id="insert" parameterType="Product"

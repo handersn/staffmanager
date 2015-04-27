@@ -68,6 +68,9 @@ public class ProductControl {
     if (pageSize <= 0)
       pageSize = PAGE_DEFAULT_SIZE;
     
+    System.out.println("pageNo="+pageNo);
+    System.out.println("pageSize="+pageSize);
+    
     int maxPageNo = productService.getMaxPageNo(pageSize);
     
     if (pageNo <= 0) pageNo = 1;
@@ -102,6 +105,20 @@ public class ProductControl {
     resultMap.put("photos", product.getPhotoList());
     return resultMap;
   }
+  
+  @RequestMapping("/search")
+  public Object search(String search) throws Exception {
+	  System.out.println("검색 컨트롤러 들어옴!!");
+	  System.out.println("검색 문자"+search);
+    Product product = productService.getSearch(search);
+    
+    HashMap<String,Object> resultMap = new HashMap<>();
+    resultMap.put("status", "success");
+    resultMap.put("product", product);
+    return resultMap;
+  }
+  
+  
 }
 
 

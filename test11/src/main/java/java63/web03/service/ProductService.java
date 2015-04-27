@@ -2,6 +2,7 @@ package java63.web03.service;
 
 import java.util.HashMap;
 import java.util.List;
+
 import java63.web03.dao.ProductDao;
 import java63.web03.domain.Product;
 
@@ -71,6 +72,11 @@ public class ProductService {
     product.setPhotoList( productDao.selectPhoto(productNo));
     return product;
   }
+
+public Product getSearch(String search) {
+	Product product = productDao.selectSearch(search);
+	return product;
+}
 }
 
 

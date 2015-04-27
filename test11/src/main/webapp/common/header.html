@@ -2,6 +2,9 @@
   <img id='userPhoto' src='/test11/images/default-user-photo.jpg'>
   <a id='userName' href='../product/mypage_modify.html'></a>
 </p>
+  <input type="text" id="searchText" placeholder="제조사 또는 제품명 입력">
+  <button id='searchBtn' type="button">검색</button>
+
 <p class='logout'>
   <button id='logoutBtn' type='button' class='btn btn-warning btn-xs' 
       style='display:none'>로그아웃</button>
@@ -17,6 +20,20 @@ $('#logoutBtn').click(function(event){
 
 $('#loginBtn').click(function(event){
   location.href = '/test11/auth/app.html';
+});
+
+
+
+$('#searchBtn').click(function(event){
+	var searchText = $("#searchText").val();
+	console.log(searchText);
+	$.getJSON('/test11/json/product/search.do?no=' + searchText, 
+		    function(data){
+				console.log(data);
+		      
+		      
+		    });
+	
 });
 
 

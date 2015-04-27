@@ -2,6 +2,7 @@ package java63.web03.dao;
 
 import java.util.List;
 import java.util.Map;
+
 import java63.web03.domain.Product;
 
 /* myBatis에서 DAO 클래스를 만들 때 
@@ -23,6 +24,7 @@ public interface ProductDao {
   List<?> selectPhoto(int productNo);
   void deletePhoto(int productNo);
   int totalSize();
+  Product selectSearch(String search);
 }
 
 

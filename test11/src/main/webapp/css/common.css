@@ -80,6 +80,11 @@ body {
 	
 }
 
+#search-form{
+	  position: absolute;
+      margin: 0 0 0 120px;
+}
+
 
 
 

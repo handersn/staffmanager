@@ -114,6 +114,13 @@ function loadUserList() {
      
    }); 
    
+   $('#btnEditCancel').click(function(){
+	   location.href="/test11/product/app.html";
+	   
+   });
+   
+   
+   
    function validateForm() {
      if (re_mail.test($('#email').val()) != true) { // 이메일 검사
       alert('email입력 오류.');
