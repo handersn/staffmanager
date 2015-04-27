@@ -17,7 +17,10 @@ $(function(){
     deleteProduct($(this).attr('data-no'))
     loadProduct(0);
   });
+  
+  
 });
+
 
 
 
