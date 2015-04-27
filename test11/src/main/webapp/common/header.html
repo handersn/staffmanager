@@ -25,10 +25,9 @@ $('#loginBtn').click(function(event){
 });
 
 $('#searchBtn').click(function(event){
-	searchText = $("#searchText").val();
+	var searchText = $("#searchText").val();
 	console.log(searchText);
-	alert(searchText);
-	$.getJSON('/test11/json/product/search.do?no=' + searchText, 
+	$.getJSON('/test11/json/product/search.do?searchText=' + searchText, 
 			function(data){
 		console.log(data);
 		

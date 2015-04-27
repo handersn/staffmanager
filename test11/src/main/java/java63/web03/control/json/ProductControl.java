@@ -107,10 +107,10 @@ public class ProductControl {
   }
   
   @RequestMapping("/search")
-  public Object search(String search) throws Exception {
+  public Object search(String searchText) throws Exception {
 	  System.out.println("검색 컨트롤러 들어옴!!");
-	  System.out.println("검색 문자"+search);
-    Product product = productService.getSearch(search);
+	  System.out.println("검색 문자"+searchText);
+    Product product = productService.getSearch(searchText);
     
     HashMap<String,Object> resultMap = new HashMap<>();
     resultMap.put("status", "success");

@@ -73,8 +73,8 @@ public class ProductService {
     return product;
   }
 
-public Product getSearch(String search) {
-	Product product = productDao.selectSearch(search);
+public Product getSearch(String searchText) {
+	Product product = productDao.selectSearch(searchText);
 	return product;
 }
 }

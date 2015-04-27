@@ -24,7 +24,7 @@ public interface ProductDao {
   List<?> selectPhoto(int productNo);
   void deletePhoto(int productNo);
   int totalSize();
-  Product selectSearch(String search);
+  Product selectSearch(String searchText);
 }
 
 
